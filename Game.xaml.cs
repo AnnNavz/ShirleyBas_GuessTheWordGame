@@ -86,7 +86,7 @@ public partial class Game : ContentPage, INotifyPropertyChanged
 	public Game()
 	{
 		InitializeComponent();
-		Letters.AddRange("QWERTYUIOPASDFGHJKLZXCVBNM");
+		Letters.AddRange("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 		BindingContext = this;
 		PickWord();
 		CalculateWord(answer, guessed);
