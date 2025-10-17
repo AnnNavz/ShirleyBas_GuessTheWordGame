@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShirleyBas_GuessTheWordGame.MainPage">
+
+    <Grid>
+        <Image
+              Source="background.png"
+              Aspect="AspectFill" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <Label
+                Text="Designed by Navasca and Bas"
+                FontSize="14"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center"
+                FontFamily="poppins"
+                TextColor="Black"
+                Margin="0,20,0,0"/>
+            
+            <Image
+                Grid.Row="1"
+                Source="title.png"
+                WidthRequest="360"
+                Margin="0,20,0,30"/>
+
+            <ImageButton Grid.Row="2"
+                         x:Name="Play"
+                         Clicked="Play_Clicked" 
+                         Source="button.png"
+                         WidthRequest="200"
+                         CornerRadius="20"
+                         BackgroundColor="Transparent"
+                         Margin="0"
+                         />
+            
+
+
+
+        </Grid>
+    </Grid>
+
+
+</ContentPage>
