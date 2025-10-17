@@ -3,10 +3,73 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShirleyBas_GuessTheWordGame.Game"
              Title="Game">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid>
+        <Image
+           Source="game_background.png"
+           Aspect="AspectFill" />
+
+        <Grid
+            RowDefinitions=".6*,.4*, Auto">
+            <VerticalStackLayout Spacing="10"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                
+                <Label FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       Text="{Binding GameStatus}"/>
+
+                <Image HeightRequest="200"/>
+
+                <Label FontSize="40"
+                       HorizontalOptions="Center"
+                       Text="{Binding Spotlight}"
+                       VerticalOptions="Center"/>
+
+                <Label FontSize="Large"
+                       HorizontalTextAlignment="Center"
+                       Text="{Binding Message}"/>
+
+            </VerticalStackLayout>
+            <FlexLayout x:Name="LettersContainer"
+                        Grid.Row="1"
+                        Wrap="Wrap"
+                        JustifyContent="SpaceEvenly"
+                        BindableLayout.ItemsSource="{Binding Letters}"
+                        Margin="10">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Button HeightRequest="50"
+                                WidthRequest="50"
+                                FontFamily="poppins"
+                                Text="{Binding .}"
+                                x:Name="letter"
+                                FontAttributes="Bold"
+                                TextColor="Black"
+                                FontSize="22"
+                                BackgroundColor="White"
+                                Clicked="letter_Clicked"
+                                Margin="1.1"/>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+
+            <Button     HorizontalOptions="Center"
+                        x:Name="Reset"
+                        Clicked="Reset_Clicked"
+                        Text="Reset"
+                        WidthRequest="150"
+                        HeightRequest="20"
+                        FontFamily="poppins"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        BackgroundColor="#C295ED"
+                        Grid.Row="2"
+                        Margin="30"/>
+
+
+        </Grid>
+        
+        
+    </Grid>
 </ContentPage>
