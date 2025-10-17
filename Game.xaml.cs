@@ -128,11 +128,12 @@ public partial class Game : ContentPage, INotifyPropertyChanged
 		EnableLetters();
 	}
 
-	private void letter_Clicked(object sender, EventArgs e)
+	private async void letter_Clicked(object sender, EventArgs e)
 	{
 		if (sender is Button btn)
 		{
 			var letter = btn.Text;
+			await btn.FadeTo(0.5, 50, Easing.CubicOut);
 			btn.IsEnabled = false;
 			HandleGuess(letter[0]);
 		}
@@ -199,8 +200,10 @@ public partial class Game : ContentPage, INotifyPropertyChanged
 			if (child is Button btn)
 			{
 				btn.IsEnabled = true;
+				btn.Opacity = 1.0;
 			}
 		}
+
 	}
 
 }
