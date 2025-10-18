@@ -25,6 +25,7 @@
                 <Label 
                      Text="{Binding Message}" 
                      FontSize="16" 
+                     FontFamily="poppins"
                      TextColor="White"
                      HorizontalOptions="Center"/>
 
