@@ -17,11 +17,10 @@
             <Label
                 Text="Designed by Navasca and Bas"
                 FontSize="14"
-                FontAttributes="Bold"
                 HorizontalTextAlignment="Center"
                 FontFamily="poppins"
-                TextColor="Black"
-                Margin="0,20,0,0"/>
+                TextColor="White"
+                Margin="0,15,0,0"/>
             
             <Image
                 Grid.Row="1"
@@ -33,7 +32,7 @@
                          x:Name="Play"
                          Clicked="Play_Clicked" 
                          Source="button.png"
-                         WidthRequest="200"
+                         WidthRequest="300"
                          CornerRadius="20"
                          BackgroundColor="Transparent"
                          Margin="0"

@@ -83,7 +83,7 @@ public partial class Game : ContentPage, INotifyPropertyChanged
 		{ "HARDWARE","The physical components of a computer."},
 		{ "NETWORK","A group of interconnected computers and devices."},
 		{ "INTERFACE","This is what users see first in the screen."},
-		{ "VISUALSTUDIO","an app that mostly students used for desktop development."},
+		{ "VISUALSTUDIO","An app that mostly students used for desktop development."},
 		{ "GITHUB", "A platform for storing code projects and collaborative software development."}
 	};
 	#endregion
@@ -97,7 +97,6 @@ public partial class Game : ContentPage, INotifyPropertyChanged
 	private int maxWrong = 6;
 	private string gameStatus;
 	private string currentImage = "img0.jpg";
-	private readonly int CluesCount = 2;
 	private string hint;
 
 	public Game()
@@ -108,6 +107,7 @@ public partial class Game : ContentPage, INotifyPropertyChanged
 		PickWord();
 		CalculateWord(answer, guessed);
 		UpdateStatus();
+		EnableLetters();
 
 	}
 
@@ -136,9 +136,14 @@ public partial class Game : ContentPage, INotifyPropertyChanged
 		answer = selectedWord;
 		Hint = wordHints[selectedWord];
 
+		int calculatedClues = answer.Length / 3;
+		int cluesToAdd = Math.Max(1, calculatedClues);
+	
 
 		var wordLetters = answer.Distinct().ToList();
-		int cluesToAdd = Math.Min(CluesCount, wordLetters.Count);
+		cluesToAdd = Math.Min(cluesToAdd, wordLetters.Count);
+
+		guessed.Clear();
 
 		for (int i = 0; i < cluesToAdd; i++)
 		{
