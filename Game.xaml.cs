@@ -96,7 +96,7 @@ public partial class Game : ContentPage, INotifyPropertyChanged
 	private int mistakes = 0;
 	private int maxWrong = 6;
 	private string gameStatus;
-	private string currentImage = "img0.jpg";
+	private string currentImage = "img0.png";
 	private string hint;
 
 	public Game()
@@ -168,7 +168,7 @@ public partial class Game : ContentPage, INotifyPropertyChanged
 	{
 		mistakes = 0;
 		guessed.Clear();
-		CurrentImage = "img0.jpg";
+		CurrentImage = "img0.png";
 		PickWord();
 		CalculateWord(answer, guessed);
 		Message = "";
@@ -197,13 +197,18 @@ public partial class Game : ContentPage, INotifyPropertyChanged
 		{
 			CalculateWord(answer, guessed);
 			CheckIfGameWon();
+			
 		}
 		else
 		{
 			mistakes++;
 			UpdateStatus();
 			CheckIfGameLost();
-			CurrentImage = $"img{mistakes}.jpg";
+			CurrentImage = $"img{mistakes}.png";
+			if(mistakes == 6)
+			{
+				CurrentImage = $"img6.gif";
+			}
 		}
 	}
 
@@ -212,6 +217,7 @@ public partial class Game : ContentPage, INotifyPropertyChanged
 		if (Spotlight.Replace(" ", "") == answer)
 		{
 			Message = "You win!";
+			CurrentImage = "win.png";
 			DisableLetters();
 		}
 	}

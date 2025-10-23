@@ -9,20 +9,27 @@
            Source="game_background.png"
            Aspect="AspectFill" />
 
-        <Grid
+        <Grid>
+            <Image
+                Source="{Binding CurrentImage}"
+                IsAnimationPlaying="True"
+                Aspect="AspectFill"/>
+
+            <Grid
             RowDefinitions="Auto,.4*, Auto">
-            <VerticalStackLayout Spacing="10"
+                <VerticalStackLayout Spacing="10"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center">
-                
-                <Label FontAttributes="Bold"
+
+                    <Label FontAttributes="Bold"
                        HorizontalOptions="Center"
                        Text="{Binding GameStatus}"
                        FontFamily="DeadlyCute"
                        FontSize="16"
+                       TextColor="White"
                        />
 
-                <Label 
+                    <Label 
                      Text="{Binding Message}" 
                      FontSize="16" 
                      FontFamily="poppins"
@@ -30,55 +37,55 @@
                      HorizontalOptions="Center"/>
 
 
-                <Image HeightRequest="200"/>
+                    <Image HeightRequest="200"/>
 
-                <Label FontSize="35"
+                    <Label FontSize="35"
                        FontAttributes="Bold"
                        FontFamily="DeadlyCute"
                        HorizontalOptions="Center"
                        Text="{Binding Spotlight}"
                        VerticalOptions="Center"
                        TextColor="White">
-                    <Label.Shadow>
-                        <Shadow 
+                        <Label.Shadow>
+                            <Shadow 
                              Brush="Black"
                              Opacity="0.5" 
                              Radius="5" 
                              Offset="2,5" />
-                    </Label.Shadow>
-                </Label>
+                        </Label.Shadow>
+                    </Label>
 
-                <Border 
+                    <Border 
                     Stroke="Black"
                     StrokeThickness="2"
                     StrokeShape="RoundRectangle 10"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
-                    Background="#50FFFFFF"
-                    Padding="2"
+                    Background="#40FFFFFF"
+                    Padding="8"
                     Margin="10">
-                    
-                    <Label 
+
+                        <Label 
                      Text="{Binding Hint}" 
                      FontSize="16" 
                      TextColor="White"
-                     HorizontalOptions="Center" 
                      FontFamily="poppins"
-                     Margin="5" />
-                    
-                </Border>
+                     Margin="5" 
+                     HorizontalTextAlignment="Center"/>
+
+                    </Border>
 
 
-            </VerticalStackLayout>
-            <FlexLayout x:Name="LettersContainer"
+                </VerticalStackLayout>
+                <FlexLayout x:Name="LettersContainer"
                         Grid.Row="1"
                         Wrap="Wrap"
                         JustifyContent="SpaceEvenly"
                         BindableLayout.ItemsSource="{Binding Letters}"
                         Margin="10,10,10,0">
-                <BindableLayout.ItemTemplate>
-                    <DataTemplate>
-                        <Button HeightRequest="25"
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Button HeightRequest="25"
                                 WidthRequest="50"
                                 FontFamily="poppins"
                                 Text="{Binding .}"
@@ -88,11 +95,11 @@
                                 FontSize="23"
                                 BackgroundColor="White"
                                 Clicked="letter_Clicked"/>
-                    </DataTemplate>
-                </BindableLayout.ItemTemplate>
-            </FlexLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
 
-            <Button     HorizontalOptions="Center"
+                <Button     HorizontalOptions="Center"
                         x:Name="Reset"
                         Clicked="Reset_Clicked"
                         Text="Reset"
@@ -105,6 +112,8 @@
                         Grid.Row="2"
                         Margin="0,0,0,20"/>
 
+
+            </Grid>
 
         </Grid>
         
