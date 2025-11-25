@@ -9,7 +9,7 @@
 
 		private async void Play_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new Game());
+			await Navigation.PushAsync(new CategoryPage());
 		}
     }
 }
