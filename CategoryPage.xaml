@@ -13,6 +13,9 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Label
@@ -32,7 +35,7 @@
                          WidthRequest="300"
                          CornerRadius="20"
                          BackgroundColor="Transparent"
-                         Margin="0,50,0,0"
+                         Margin="0,30,0,0"
                          />
 
             <ImageButton Grid.Row="2"
@@ -40,6 +43,36 @@
                          Clicked="animal_Clicked"
                          Source="animals.png"
                          WidthRequest="150"
+                         CornerRadius="20"
+                         BackgroundColor="Transparent"
+                         Margin="0,30,0,0"
+                         />
+
+            <ImageButton Grid.Row="3"
+                         x:Name="flower"
+                         Clicked="flower_Clicked"   
+                         Source="flower.png"
+                         WidthRequest="150"
+                         CornerRadius="20"
+                         BackgroundColor="Transparent"
+                         Margin="0,30,0,0"
+                         />
+
+            <ImageButton Grid.Row="4"
+                         x:Name="vegetable"
+                         Clicked="vegetable_Clicked"
+                         Source="vege.png"
+                         WidthRequest="200"
+                         CornerRadius="20"
+                         BackgroundColor="Transparent"
+                         Margin="0,30,0,0"
+                         />
+
+            <ImageButton Grid.Row="5"
+                         x:Name="fruit"
+                         Clicked="fruit_Clicked"
+                         Source="fruit.png"
+                         WidthRequest="120"
                          CornerRadius="20"
                          BackgroundColor="Transparent"
                          Margin="0,30,0,0"

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShirleyBas_GuessTheWordGame.flower"
+             Title="flower">
+
+    <Grid>
+        <Image
+           Source="game_background.png"
+           Aspect="AspectFill" />
+
+        <Grid>
+            <Image
+                Source="{Binding CurrentImage}"
+                IsAnimationPlaying="True"
+                Aspect="AspectFill"/>
+
+            <Grid
+            RowDefinitions="Auto,.4*, Auto">
+                <VerticalStackLayout Spacing="10"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+
+                    <Label FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       Text="{Binding GameStatus}"
+                       FontFamily="DeadlyCute"
+                       FontSize="16"
+                       TextColor="White"
+                       />
+
+                    <Label 
+                     Text="{Binding Message}" 
+                     FontSize="16" 
+                     FontFamily="poppins"
+                     TextColor="White"
+                     HorizontalOptions="Center"/>
+
+
+                    <Image HeightRequest="200"/>
+
+                    <Label FontSize="35"
+                       FontAttributes="Bold"
+                       FontFamily="DeadlyCute"
+                       HorizontalOptions="Center"
+                       Text="{Binding Spotlight}"
+                       VerticalOptions="Center"
+                       TextColor="White">
+                        <Label.Shadow>
+                            <Shadow 
+                             Brush="Black"
+                             Opacity="0.5" 
+                             Radius="5" 
+                             Offset="2,5" />
+                        </Label.Shadow>
+                    </Label>
+
+                    <Border 
+                    Stroke="Black"
+                    StrokeThickness="2"
+                    StrokeShape="RoundRectangle 10"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Background="#40FFFFFF"
+                    Padding="8"
+                    Margin="10">
+
+                        <Label 
+                     Text="{Binding Hint}" 
+                     FontSize="16" 
+                     TextColor="White"
+                     FontFamily="poppins"
+                     Margin="5" 
+                     HorizontalTextAlignment="Center"/>
+
+                    </Border>
+
+
+                </VerticalStackLayout>
+                <FlexLayout x:Name="LettersContainer"
+                        Grid.Row="1"
+                        Wrap="Wrap"
+                        JustifyContent="SpaceEvenly"
+                        BindableLayout.ItemsSource="{Binding Letters}"
+                        Margin="10,10,10,0">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Button HeightRequest="25"
+                                WidthRequest="50"
+                                FontFamily="poppins"
+                                Text="{Binding .}"
+                                x:Name="letter"
+                                FontAttributes="Bold"
+                                TextColor="Black"
+                                FontSize="23"
+                                BackgroundColor="White"
+                                Clicked="letter_Clicked"/>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+
+                <Button     HorizontalOptions="Center"
+                        x:Name="Reset"
+                        Clicked="Reset_Clicked"
+                        Text="Reset"
+                        WidthRequest="150"
+                        HeightRequest="20"
+                        FontFamily="poppins"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        BackgroundColor="#C295ED"
+                        Grid.Row="2"
+                        Margin="0,0,0,20"/>
+
+
+            </Grid>
+
+        </Grid>
+
+
+    </Grid>
+</ContentPage>
